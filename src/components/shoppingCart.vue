@@ -1,33 +1,33 @@
 <template>
-    <div class="cart">
-      <!-- Cart items -->
-      <div v-for="(item, index) in cart" :key="index" class="cart-item">
-        <div class="item-details">
-          <p class="item-name">{{ item.name }}</p>
-          <p class="item-price">Php {{ item.price }}</p>
-          <p class="item-quantity">Quantity: {{ item.quantity }}</p>
-        </div>
-        <div class="quantity-controls">
-          <button @click="openDialog(index)" class="update-btn">Update</button>
-          <button @click="removeFromCart(index)" class="remove-btn">Remove</button>
-        </div>
+  <div class="cart">
+    <!-- Cart items -->
+    <div v-for="(item, index) in cart" :key="index" class="cart-item">
+      <div class="item-details">
+        <p class="item-name">{{ item.name }}</p>
+        <p class="item-price">₱ {{ item.price }}</p> <!-- Replaced "Php" with peso sign "₱" -->
+        <p class="item-quantity">Quantity: {{ item.quantity }}</p>
       </div>
-  
-      <!-- Total -->
-      <p class="total">Total: Php {{ total }}</p>
-  
-      <!-- Dialog for updating quantity -->
-      <div v-if="dialogVisible" class="dialog">
-        <div class="dialog-content">
-          <p>Enter new quantity for {{ cart[selectedItemIndex].name }}:</p>
-          <input type="number" v-model="newQuantity" @keydown.enter="updateQuantity(selectedItemIndex)">
-          <button @click="updateQuantity(selectedItemIndex)" class="save-btn">Save</button>
-          <button @click="closeDialog" class="cancel-btn">Cancel</button>
-        </div>
+      <div class="quantity-controls">
+        <button @click="openDialog(index)" class="update-btn">Update</button>
+        <button @click="removeFromCart(index)" class="remove-btn">Remove</button>
       </div>
     </div>
+
+    <!-- Total -->
+    <p class="total">Total: ₱ {{ total }}</p> <!-- Replaced "Php" with peso sign "₱" -->
+
+    <!-- Dialog for updating quantity -->
+    <div v-if="dialogVisible" class="dialog">
+      <div class="dialog-content">
+        <p>Enter new quantity for {{ cart[selectedItemIndex].name }}:</p>
+        <input type="number" v-model="newQuantity" @keydown.enter="updateQuantity(selectedItemIndex)">
+        <button @click="updateQuantity(selectedItemIndex)" class="save-btn">Save</button>
+        <button @click="closeDialog" class="cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
 </template>
-  
+
 <script>
 export default {
   data() {
@@ -82,7 +82,7 @@ export default {
   },
 };
 </script>
-  
+
 <style scoped>
 .cart {
   margin-top: 20px;
