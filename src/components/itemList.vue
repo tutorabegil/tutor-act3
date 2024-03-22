@@ -7,7 +7,7 @@
           <img :src="getImagePath(item.image)" alt="Item Image" class="item-image">
           <div>
             <p class="item-name">{{ item.name }}</p>
-            <p class="item-price">Php {{ item.price }}</p>
+            <p class="item-price">₱ {{ item.price.toFixed(2) }}</p>
           </div>
         </div>
       </div>
